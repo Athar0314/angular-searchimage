@@ -1,0 +1,66 @@
+<div class="search">
+  <h1>
+    <i>Search Images from Unsplash Api using AngularJS!! </i>
+  </h1>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <span matPrefix>
+        <mat-icon>camera</mat-icon>
+      </span>
+      <input
+        type="tel"
+        matInput
+        placeholder="Search"
+        name="search"
+        [(ngModel)]="search"
+      />
+      <button matSuffix mat-button (click)="searchs()">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+    <!-- <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+      <div *ngIf="name.errors?.['required']">Name is required.</div>
+      <div *ngIf="name.errors?.['minlength']">
+        Name must be at least 4 characters long.
+      </div>
+      <div *ngIf="name.errors?.['forbiddenName']">Name cannot be Bob.</div>
+    </div>
+  </form>
+</div> -->
+    <mat-divider></mat-divider>
+    <div *ngIf="!searchPhoto">
+      <div class="carding">
+        <div class="container">
+          <div class="card" *ngFor="let p of photo">
+            <mat-card class="example-card">
+              <mat-card-header>
+                <p>Captured By {{ p.user.name }}</p>
+              </mat-card-header>
+              <img [src]="p.urls.thumb" alt="images" />
+              <mat-card-content>
+                <p>{{ p.alt_description }}</p>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="searchPhoto">
+      <div class="carding">
+        <div class="container">
+          <div class="card" *ngFor="let p of searchPhoto.results">
+            <mat-card class="example-card">
+              <mat-card-header>
+                <p>Captured By {{ p.user.name }}</p>
+              </mat-card-header>
+              <img [src]="p.urls.thumb" alt="images" />
+              <mat-card-content>
+                <p>{{ p.alt_description }}</p>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
